@@ -1,0 +1,28 @@
+/* Learning Journey Section Styles */
+.learning {
+    background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+}
+
+body.light-mode .learning {
+    background: linear-gradient(135deg, var(--light-bg-primary), var(--light-bg-secondary));
+}
+
+.learning-intro {
+    max-width: 800px;
+    margin: 0 auto var(--spacing-3xl);
+    padding: var(--spacing-xl);
+    background: var(--current-bg-secondary);
+    border: 1px solid var(--current-border-color);
+    border-radius: var(--radius-lg);
+    animation: fadeInUp 0.8s ease;
+}
+
+.learning-intro p {
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.8;
+    color: var(--current-text-secondary);
+}
+
+.learning-intro p:last-child {
+    margin-bottom: 0;
+}

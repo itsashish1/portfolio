@@ -1,0 +1,304 @@
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: transparent;
+    z-index: 1000;
+    transition: background-color var(--transition-base), box-shadow var(--transition-base), transform var(--transition-base), border-color var(--transition-base);
+    border-bottom: 1px solid transparent;
+}
+
+/* Animated Character - Jumps across nav items */
+.nav-character-container {
+    position: absolute;
+    top: 22px;
+    left: 0;
+    width: 100%;
+    height: 30px;
+    pointer-events: none;
+    z-index: 1002;
+    overflow: hidden;
+}
+
+.nav-character-jump {
+    position: absolute;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-shadow: 0 0 10px rgba(99, 102, 241, 0.8), 0 0 20px rgba(99, 102, 241, 0.5);
+    animation: jumpAcrossNav 8s ease-in-out infinite;
+}
+
+/* # Character specific */
+#char-hash {
+    animation: jumpAcrossNav 8s ease-in-out infinite;
+}
+
+/* @ Character - same animation but slightly offset horizontally */
+#char-at {
+    animation: jumpAcrossNavAt 8s ease-in-out infinite;
+    color: var(--secondary-color);
+    text-shadow: 0 0 10px rgba(16, 185, 129, 0.8), 0 0 20px rgba(16, 185, 129, 0.5);
+}
+
+@keyframes jumpAcrossNav {
+    /* Home (0%) */
+    0%, 3% {
+        left: calc(15% - 8px);
+        top: 0;
+    }
+    /* About (12.5%) */
+    12.5%, 15.5% {
+        left: calc(23% - 8px);
+        top: -15px;
+    }
+    /* Skills (25%) */
+    25%, 28% {
+        left: calc(32% - 8px);
+        top: 0;
+    }
+    /* Projects (37.5%) */
+    37.5%, 40.5% {
+        left: calc(41% - 8px);
+        top: -15px;
+    }
+    /* GitHub (50%) */
+    50%, 53% {
+        left: calc(50% - 8px);
+        top: 0;
+    }
+    /* LeetCode (62.5%) */
+    62.5%, 65.5% {
+        left: calc(59% - 8px);
+        top: -15px;
+    }
+    /* Learning (75%) */
+    75%, 78% {
+        left: calc(68% - 8px);
+        top: 0;
+    }
+    /* Contact (87.5%) */
+    87.5%, 90.5% {
+        left: calc(77% - 8px);
+        top: -15px;
+    }
+    /* Back to Contact (100%) */
+    100% {
+        left: calc(77% - 8px);
+        top: 0;
+    }
+}
+
+@keyframes jumpAcrossNavAt {
+    /* Home (0%) */
+    0%, 3% {
+        left: calc(15% + 8px);
+        top: 0;
+    }
+    /* About (12.5%) */
+    12.5%, 15.5% {
+        left: calc(23% + 8px);
+        top: -15px;
+    }
+    /* Skills (25%) */
+    25%, 28% {
+        left: calc(32% + 8px);
+        top: 0;
+    }
+    /* Projects (37.5%) */
+    37.5%, 40.5% {
+        left: calc(41% + 8px);
+        top: -15px;
+    }
+    /* GitHub (50%) */
+    50%, 53% {
+        left: calc(50% + 8px);
+        top: 0;
+    }
+    /* LeetCode (62.5%) */
+    62.5%, 65.5% {
+        left: calc(59% + 8px);
+        top: -15px;
+    }
+    /* Learning (75%) */
+    75%, 78% {
+        left: calc(68% + 8px);
+        top: 0;
+    }
+    /* Contact (87.5%) */
+    87.5%, 90.5% {
+        left: calc(77% + 8px);
+        top: -15px;
+    }
+    /* Back to Contact (100%) */
+    100% {
+        left: calc(77% + 8px);
+        top: 0;
+    }
+}
+
+.navbar.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: rgba(10, 14, 39, 0.95);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--current-border-color);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
+    transform: translateY(0);
+
+}
+
+body.light-mode .navbar.sticky {
+    background: rgba(248, 249, 250, 0.95);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+
+.nav-brand .brand-link {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 1.5rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--current-text-primary);
+    transition: all var(--transition-fast);
+}
+
+.brand-icon {
+    font-size: 1.75rem;
+    color: var(--primary-color);
+    animation: pulse 2s infinite;
+}
+
+.nav-brand .brand-link:hover {
+    transform: scale(1.05);
+}
+
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: var(--spacing-xl);
+}
+
+.nav-link {
+    color: var(--current-text-secondary);
+    font-weight: var(--font-weight-medium);
+    transition: all var(--transition-fast);
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    transition: width var(--transition-fast);
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.theme-toggle {
+    width: 44px;
+    height: 44px;
+    border: 2px solid var(--current-border-color);
+    background: transparent;
+    border-radius: var(--radius-lg);
+    color: var(--current-text-primary);
+    cursor: pointer;
+    transition: all var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+}
+
+.theme-toggle:hover {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+    transform: rotate(20deg);
+}
+
+.hamburger {
+    display: none;
+    flex-direction: column;
+    width: 30px;
+    height: 24px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    gap: 5px;
+}
+
+.hamburger span {
+    width: 100%;
+    height: 2px;
+    background: var(--current-text-primary);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-base);
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(12px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-12px);
+}
+
+@media (max-width: 768px) {
+    .nav-menu {
+        display: none;
+    }
+
+    .hamburger {
+        display: flex;
+    }
+
+    .nav-menu.active {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        background: var(--bg-secondary);
+        padding: var(--spacing-xl);
+        gap: var(--spacing-lg);
+        border-bottom: 1px solid var(--current-border-color);
+        z-index: 999;
+    }
+
+    body.light-mode .nav-menu.active {
+        background: var(--light-bg-secondary);
+    }
+}

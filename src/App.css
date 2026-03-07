@@ -1,0 +1,56 @@
+/* App-specific styles */
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main {
+    flex: 1;
+}
+
+/* Section Header */
+.section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-3xl);
+    animation: fadeInUp 0.8s ease;
+}
+
+.section-title {
+    margin-bottom: var(--spacing-lg);
+    position: relative;
+    display: inline-block;
+}
+
+.title-underline {
+    height: 4px;
+    width: 100px;
+    background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    margin: var(--spacing-md) auto 0;
+    border-radius: var(--radius-full);
+    animation: scaleWidth 0.8s ease;
+}
+
+/* Page Load Animation */
+.fade-in {
+    opacity: 1;
+    animation: fadeInUp 0.3s ease forwards;
+}
+
+.fade-out {
+    opacity: 0;
+    animation: fadeOut 0.3s ease forwards;
+}
+
+/* Utility Classes */
+.hidden {
+    display: none !important;
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+}
+
+.nav-link.active::after {
+    width: 100%;
+}

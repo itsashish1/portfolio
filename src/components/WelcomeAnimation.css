@@ -1,0 +1,217 @@
+/* Welcome Animation Overlay */
+.welcome-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--bg-primary), var(--bg-secondary));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    opacity: 1;
+    transition: opacity 0.5s ease;
+}
+
+body.light-mode .welcome-overlay {
+    background: linear-gradient(135deg, var(--light-bg-primary), var(--light-bg-secondary));
+}
+
+.welcome-overlay.visible {
+    opacity: 1;
+}
+
+.welcome-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* Welcome Content */
+.welcome-content {
+    text-align: center;
+    position: relative;
+}
+
+/* Welcome Title */
+.welcome-title {
+    font-size: 5rem;
+    font-weight: 800;
+    margin-bottom: 2rem;
+    position: relative;
+    display: inline-block;
+    animation: welcomePulse 2s ease-in-out infinite;
+}
+
+.welcome-text {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: none;
+    filter: drop-shadow(0 0 20px rgba(99, 102, 241, 0.5));
+}
+
+/* Sparkle Container */
+.sparkle-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.sparkle {
+    position: absolute;
+    font-size: 2rem;
+    color: var(--primary-color);
+    animation: sparkleAnim 1.5s ease-in-out infinite;
+    text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--secondary-color);
+}
+
+.sparkle:nth-child(1) {
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation-delay: 0s;
+}
+
+.sparkle:nth-child(2) {
+    top: 20%;
+    right: -40px;
+    animation-delay: 0.3s;
+    font-size: 1.5rem;
+}
+
+.sparkle:nth-child(3) {
+    bottom: 10%;
+    left: -30px;
+    animation-delay: 0.6s;
+    font-size: 1.8rem;
+}
+
+.sparkle:nth-child(4) {
+    top: 30%;
+    left: -40px;
+    animation-delay: 0.9s;
+    font-size: 1.2rem;
+}
+
+@keyframes sparkleAnim {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0.5) translateX(-50%);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.2) translateX(-50%);
+    }
+}
+
+/* Coding Words Container */
+.coding-words-container {
+    position: relative;
+    width: 600px;
+    height: 200px;
+    margin: 0 auto;
+}
+
+.coding-word {
+    position: absolute;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    white-space: nowrap;
+    animation: wordSparkle var(--duration, 2s) ease-in-out infinite;
+    animation-delay: var(--delay, 0s);
+    text-shadow: 0 0 15px var(--primary-color), 0 0 30px rgba(99, 102, 241, 0.5);
+    opacity: 0;
+    left: var(--random-x, 50%);
+    top: var(--random-y, 50%);
+    transform: translate(-50%, -50%);
+}
+
+@keyframes wordSparkle {
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5);
+        filter: blur(10px);
+    }
+    20% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.2);
+        filter: blur(0);
+    }
+    50% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+        filter: blur(0);
+    }
+    80% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.1);
+        filter: blur(0);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.8);
+        filter: blur(5px);
+    }
+}
+
+/* Individual word positions */
+.coding-word:nth-child(1) { top: 10% !important; left: 20% !important; }
+.coding-word:nth-child(2) { top: 15% !important; left: 70% !important; }
+.coding-word:nth-child(3) { top: 35% !important; left: 85% !important; color: var(--secondary-color) !important; }
+.coding-word:nth-child(4) { top: 50% !important; left: 10% !important; }
+.coding-word:nth-child(5) { top: 50% !important; left: 80% !important; }
+.coding-word:nth-child(6) { top: 70% !important; left: 25% !important; color: var(--secondary-color) !important; }
+.coding-word:nth-child(7) { top: 65% !important; left: 75% !important; }
+.coding-word:nth-child(8) { top: 85% !important; left: 50% !important; }
+.coding-word:nth-child(9) { top: 30% !important; left: 50% !important; color: var(--secondary-color) !important; }
+.coding-word:nth-child(10) { top: 75% !important; left: 60% !important; }
+
+/* Welcome Pulse Animation */
+@keyframes welcomePulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .welcome-title {
+        font-size: 3rem;
+    }
+
+    .coding-words-container {
+        width: 90%;
+        height: 150px;
+    }
+
+    .coding-word {
+        font-size: 1rem;
+    }
+
+    .sparkle {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-title {
+        font-size: 2.5rem;
+    }
+
+    .coding-word {
+        font-size: 0.85rem;
+    }
+}
+

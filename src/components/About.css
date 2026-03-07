@@ -1,0 +1,366 @@
+/* About Section Styles */
+.about {
+    background: rgba(var(--current-bg-secondary-rgb), 0.85);
+    backdrop-filter: blur(5px);
+    transition: background-color var(--transition-base);
+    scroll-snap-align: start;
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: var(--spacing-3xl);
+    align-items: flex-start;
+}
+
+.about-profile {
+    animation: fadeInUp 0.8s ease;
+}
+
+.profile-card {
+    padding: var(--spacing-xl);
+    background: var(--current-bg-primary);
+    border: 1px solid var(--current-border-color);
+    border-radius: var(--radius-lg);
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all var(--transition-base);
+    position: sticky;
+    top: 100px;
+}
+
+.profile-card:hover {
+    border-color: var(--primary-color);
+    box-shadow: 0 8px 30px rgba(0, 212, 255, 0.2);
+}
+
+.profile-avatar {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+    object-fit: cover;
+    transition: transform var(--transition-base);
+}
+
+.profile-card:hover .profile-avatar {
+    transform: scale(1.05);
+}
+
+.profile-name {
+    font-size: 1.5rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.profile-location {
+    color: var(--current-text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: var(--spacing-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.profile-bio {
+    color: var(--current-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: var(--spacing-lg);
+}
+
+.profile-links {
+    display: flex;
+    gap: var(--spacing-md);
+}
+
+.profile-link-btn {
+    flex: 1;
+    padding: var(--spacing-md) var(--spacing-lg);
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: white;
+    border: none;
+    border-radius: var(--radius-lg);
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+}
+
+.profile-link-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 212, 255, 0.3);
+}
+
+.about-text {
+    animation: fadeInUp 0.8s ease;
+}
+
+.about-intro {
+    font-size: 1.3rem;
+    font-weight: var(--font-weight-semibold);
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-lg);
+}
+
+.about-para {
+    margin-bottom: var(--spacing-lg);
+    line-height: 1.8;
+}
+
+/* Tech Stack Section */
+.tech-stack {
+    margin-top: var(--spacing-3xl);
+    padding: var(--spacing-xl);
+    background: var(--current-bg-primary);
+    border: 1px solid var(--current-border-color);
+    border-radius: var(--radius-lg);
+    animation: fadeInUp 0.8s ease;
+}
+
+.tech-stack h3 {
+    margin-bottom: var(--spacing-xl);
+    color: var(--primary-color);
+    font-size: 1.3rem;
+}
+
+.tech-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--spacing-xl);
+}
+
+.tech-card {
+    padding: var(--spacing-lg);
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.08), rgba(255, 107, 157, 0.08));
+    border: 1px solid var(--current-border-color);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    cursor: pointer;
+    animation: fadeInUp 0.8s ease;
+}
+
+.tech-card:hover {
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, rgba(0, 212, 255, 0.15), rgba(255, 107, 157, 0.15));
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 212, 255, 0.2);
+}
+
+.tech-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    padding-bottom: var(--spacing-md);
+    border-bottom: 2px solid var(--current-border-color);
+}
+
+.tech-title {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.tech-title i {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.tech-title h4 {
+    margin: 0;
+    font-size: 1.2rem;
+    color: var(--current-text-primary);
+}
+
+.tech-count {
+    font-size: 0.85rem;
+    background: rgba(0, 212, 255, 0.15);
+    color: var(--primary-color);
+    padding: 0.35rem 0.75rem;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.tech-description {
+    margin: 0 0 var(--spacing-lg) 0;
+    color: var(--current-text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.tech-projects {
+    padding-top: var(--spacing-md);
+}
+
+.tech-projects h5 {
+    margin: 0 0 var(--spacing-md) 0;
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+}
+
+.projects-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.project-link {
+    padding: var(--spacing-md);
+    background: rgba(0, 212, 255, 0.05);
+    border: 1px solid rgba(0, 212, 255, 0.2);
+    border-radius: var(--radius-md);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: var(--current-text-primary);
+    transition: all var(--transition-fast);
+}
+
+.project-link:hover {
+    background: rgba(0, 212, 255, 0.12);
+    border-color: var(--primary-color);
+    transform: translateX(5px);
+}
+
+.project-info {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    flex: 1;
+}
+
+.project-name {
+    font-weight: 600;
+    color: var(--primary-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.project-stars {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    font-size: 0.85rem;
+    color: var(--secondary-color);
+    white-space: nowrap;
+}
+
+.project-link i {
+    font-size: 0.9rem;
+    color: var(--primary-color);
+    transition: transform var(--transition-fast);
+}
+
+.project-link:hover i {
+    transform: translateX(3px);
+}
+
+.view-all-link {
+    padding: var(--spacing-md);
+    background: transparent;
+    border: 1px dashed var(--primary-color);
+    border-radius: var(--radius-md);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: all var(--transition-fast);
+}
+
+.view-all-link:hover {
+    background: rgba(0, 212, 255, 0.12);
+    border-style: solid;
+}
+
+/* About Highlights */
+.about-highlights {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-3xl);
+    animation: fadeInUp 0.8s ease 0.2s both;
+}
+
+.highlight-card {
+    padding: var(--spacing-xl);
+    background: var(--current-bg-primary);
+    border: 1px solid var(--current-border-color);
+    border-radius: var(--radius-lg);
+    transition: all var(--transition-base);
+    text-align: center;
+}
+
+.highlight-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+}
+
+.highlight-icon {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: var(--spacing-md);
+}
+
+.highlight-card h3 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.stat-number {
+    font-size: 2rem;
+    font-weight: var(--font-weight-bold);
+    color: var(--primary-color);
+    margin: var(--spacing-md) 0;
+}
+
+.stat-label {
+    font-size: 0.9rem;
+    color: var(--current-text-secondary);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .about-content {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-card {
+        position: static;
+    }
+
+    .about-highlights {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tech-grid {
+        grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    }
+}
+
+@media (max-width: 480px) {
+    .about-highlights {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-avatar {
+        width: 150px;
+        height: 150px;
+    }
+}

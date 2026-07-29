@@ -1,6 +1,7 @@
 import React from 'react'
 import Hero from '../features/hero/Hero'
 import About from '../features/about/About'
+import Projects from '../features/projects/Projects'
 import Skills from '../features/skills/Skills'
 import GitHub from '../features/github/GitHub'
 import LeetCode from '../features/leetcode/LeetCode'
@@ -12,6 +13,7 @@ export default function HomeView() {
     <main className="main-content">
       <Hero />
       <About />
+      <Projects />
       <Skills />
       <GitHub />
       <LeetCode />

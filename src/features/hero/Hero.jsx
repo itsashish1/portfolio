@@ -41,53 +41,53 @@ export default function Hero() {
   return (
     <section id="hero" className="hero">
       <div className="hero-content container">
-        {/* Left Copy Column */}
+        {/* Left Bold Column */}
         <motion.div 
           className="hero-text"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, cubicBezier: [0.16, 1, 0.3, 1] }}
         >
-          <div className="apple-badge">
-            <span className="badge-dot"></span>
-            <span>Available for Full Stack & Automation Projects</span>
+          <div className="dopamine-badge">
+            <span className="badge-green-dot"></span>
+            <span>Available for Full Stack & Industrial Automation</span>
           </div>
 
           <h1 className="hero-title">
-            Engineering <span className="apple-gradient-text">Precision.</span>
+            ENGINEERING <span className="dopamine-gradient-text">PRECISION.</span>
           </h1>
 
           <p className="hero-subtitle">
-            Architecting deterministic industrial logic & modern web applications.
+            Architecting deterministic PACSystems C++ logic & modern web applications.
           </p>
 
           <p className="hero-description">
-            B.Tech Computer Science Engineer specializing in PACSystems C++ logic programming, 
-            embedded control systems, and high-performance React web interfaces.
+            B.Tech Computer Science Engineer specializing in industrial control systems, 
+            embedded automation, and high-performance React digital experiences.
           </p>
 
           <div className="hero-buttons">
-            <a href={profileData.githubUrl} target="_blank" rel="noopener noreferrer" className="btn btn-apple-primary">
-              <i className="fab fa-github"></i> GitHub Profile
+            <a href="#about" className="btn btn-dopamine-primary">
+              <i className="fas fa-arrow-down"></i> Explore Narrative
             </a>
-            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="btn btn-apple-secondary">
-              <i className="fab fa-linkedin"></i> Connect on LinkedIn
+            <a href={profileData.githubUrl} target="_blank" rel="noopener noreferrer" className="btn btn-dopamine-secondary">
+              <i className="fab fa-github"></i> GitHub Profile
             </a>
           </div>
         </motion.div>
 
-        {/* Right Apple 3D Glass Profile Showcase */}
+        {/* Right Tactile Glass Profile Showcase */}
         <motion.div 
           className="hero-visual"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2, cubicBezier: [0.16, 1, 0.3, 1] }}
         >
-          <Tilt3DCard maxTilt={12}>
-            <div className="apple-glass-card">
+          <Tilt3DCard maxTilt={10}>
+            <div className="tactile-glass-card">
               <div className="card-image-wrapper">
                 {profileData.avatar ? (
-                  <img src={profileData.avatar} alt={profileData.name} className="profile-image-apple" />
+                  <img src={profileData.avatar} alt={profileData.name} className="profile-image-tactile" />
                 ) : (
                   <div className="profile-avatar-placeholder">
                     <i className="fas fa-user-code"></i>
@@ -99,16 +99,16 @@ export default function Hero() {
                 <h3>{profileData.name}</h3>
                 <p>Full Stack & Industrial Automation</p>
                 
-                <div className="apple-stats-row">
-                  <div className="apple-stat-item">
+                <div className="tactile-stats-row">
+                  <div className="tactile-stat-item">
                     <span className="stat-num">{profileData.repos}</span>
                     <span className="stat-lbl">Repos</span>
                   </div>
-                  <div className="apple-stat-item">
+                  <div className="tactile-stat-item">
                     <span className="stat-num">{profileData.followers}</span>
                     <span className="stat-lbl">Followers</span>
                   </div>
-                  <div className="apple-stat-item">
+                  <div className="tactile-stat-item">
                     <span className="stat-num">56+</span>
                     <span className="stat-lbl">LeetCode</span>
                   </div>
@@ -117,12 +117,6 @@ export default function Hero() {
             </div>
           </Tilt3DCard>
         </motion.div>
-      </div>
-
-      <div className="hero-scroll-indicator">
-        <a href="#about">
-          <span className="apple-mouse-wheel"></span>
-        </a>
       </div>
     </section>
   )

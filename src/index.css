@@ -1,32 +1,36 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
-  /* Pristine Minimalist Slate Color Tokens */
+  /* 2026 Design System Tokens */
   --bg-primary: #09090b;
   --bg-secondary: #121215;
   --bg-tertiary: #18181b;
   
-  --surface-card: #18181b;
-  --surface-border: #27272a;
-  --surface-border-hover: #3f3f46;
+  --surface-card: rgba(24, 24, 27, 0.75);
+  --surface-border: rgba(255, 255, 255, 0.08);
+  --surface-border-hover: rgba(255, 255, 255, 0.2);
   
-  /* Accents */
-  --primary-color: #3b82f6;       /* Minimalist Blue */
-  --primary-hover: #2563eb;
-  --secondary-color: #8b5cf6;     /* Subtle Violet */
+  /* Dopamine High-Contrast Accents */
+  --primary-color: #2997ff;       /* Vivid Electric Blue */
+  --primary-hover: #0077ed;
+  --secondary-color: #8b5cf6;     /* Dopamine Violet */
+  --accent-cyan: #06b6d4;
+  --accent-emerald: #10b981;
   
   /* Typography */
-  --text-primary: #fafafa;        /* Pristine High-Contrast White */
+  --text-primary: #fafafa;        /* High-Contrast Pristine White */
   --text-secondary: #a1a1aa;      /* Muted Slate Gray */
   --text-muted: #71717a;
   
   /* Radii */
   --radius-sm: 8px;
-  --radius-md: 12px;
-  --radius-lg: 16px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
   --radius-full: 9999px;
   
-  --glass-blur: blur(12px);
+  --shadow-ambient: 0 20px 40px rgba(0, 0, 0, 0.6);
+  --shadow-hover: 0 30px 60px rgba(0, 0, 0, 0.8), 0 0 30px rgba(41, 151, 255, 0.2);
+  --glass-blur: blur(20px);
   
   /* Spacing */
   --spacing-xs: 0.25rem;
@@ -34,8 +38,8 @@
   --spacing-md: 1rem;
   --spacing-lg: 1.5rem;
   --spacing-xl: 2rem;
-  --spacing-2xl: 3rem;
-  --spacing-3xl: 4.5rem;
+  --spacing-2xl: 3.5rem;
+  --spacing-3xl: 5rem;
 }
 
 /* Global Reset */
@@ -68,7 +72,7 @@ body {
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--surface-border);
+  background: #27272a;
   border-radius: 4px;
 }
 
@@ -78,7 +82,7 @@ body {
 
 /* Container */
 .container {
-  max-width: 1040px;
+  max-width: 1100px;
   margin: 0 auto;
   padding: 0 var(--spacing-lg);
   width: 100%;
@@ -87,8 +91,8 @@ body {
 /* Section Animation */
 .section-animate {
   opacity: 0;
-  transform: translateY(20px);
-  transition: opacity 0.6s ease, transform 0.6s ease;
+  transform: translateY(25px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .section-animate.visible {

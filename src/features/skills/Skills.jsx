@@ -1,7 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import Tilt3DCard from '../../components/3d/Tilt3DCard'
-import Skills3DSphere from '../../components/3d/Skills3DSphere'
 import './Skills.css'
 
 export default function Skills() {
@@ -55,19 +54,14 @@ export default function Skills() {
     }
   ]
 
-  const allSkills = skillsData.flatMap(cat => cat.skills)
-
   return (
     <section id="skills" className="skills section-animate">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Skills & Technical Matrix</h2>
+          <h2 className="section-title">Skills & Technical Stack</h2>
           <div className="title-underline"></div>
-          <p className="section-subtitle">Interactive 3D Skill Tag Cloud & Engineering Competencies</p>
+          <p className="section-subtitle">Core Technical Competencies & Specializations</p>
         </div>
-
-        {/* Interactive 3D Sphere Cloud */}
-        <Skills3DSphere skills={allSkills} />
 
         <div className="skills-grid">
           {skillsData.map((skill, index) => (

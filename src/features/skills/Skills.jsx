@@ -1,7 +1,7 @@
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
-import Tilt3DCard from './Tilt3DCard'
-import Skills3DSphere from './Skills3DSphere'
+import Tilt3DCard from '../../components/3d/Tilt3DCard'
+import Skills3DSphere from '../../components/3d/Skills3DSphere'
 import './Skills.css'
 
 export default function Skills() {

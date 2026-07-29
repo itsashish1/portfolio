@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
-import Hero3DCanvas from './Hero3DCanvas'
-import Tilt3DCard from './Tilt3DCard'
+import Hero3DCanvas from '../../components/3d/Hero3DCanvas'
+import Tilt3DCard from '../../components/3d/Tilt3DCard'
 import './Hero.css'
 
 export default function Hero() {

@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import Tilt3DCard from './Tilt3DCard'
+import Tilt3DCard from '../../components/3d/Tilt3DCard'
 import './LeetCode.css'
 
 export default function LeetCode() {

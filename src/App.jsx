@@ -1,19 +1,13 @@
 import { useState, useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import About from './components/About'
-import Skills from './components/Skills'
-import GitHub from './components/GitHub'
-import LeetCode from './components/LeetCode'
-import Learning from './components/Learning'
-import Contact from './components/Contact'
-import Footer from './components/Footer'
-import ScrollToTop from './components/ScrollToTop'
-import SkillDetail from './components/SkillDetail'
-import FloatingWords from './components/FloatingWords'
-import MouseParticles from './components/MouseParticles'
-import WelcomeAnimation from './components/WelcomeAnimation'
+import Navbar from './components/layout/Navbar'
+import Footer from './components/layout/Footer'
+import HomeView from './pages/HomeView'
+import SkillDetailView from './pages/SkillDetailView'
+import ScrollToTop from './components/common/ScrollToTop'
+import FloatingWords from './components/common/FloatingWords'
+import MouseParticles from './components/common/MouseParticles'
+import WelcomeAnimation from './components/common/WelcomeAnimation'
 import './App.css'
 
 function AppContent() {
@@ -36,7 +30,6 @@ function AppContent() {
       })
     }, observerOptions)
 
-    // Observe all animated sections
     const sections = document.querySelectorAll('.section-animate')
     sections.forEach((section) => {
       observer.observe(section)
@@ -68,20 +61,10 @@ function AppContent() {
       <MouseParticles />
       <Navbar isDarkMode={isDarkMode} toggleTheme={toggleTheme} />
       <Routes>
-        <Route path="/" element={
-          <>
-            <Hero />
-            <About />
-            <Skills />
-            <GitHub />
-            <LeetCode />
-            <Learning />
-            <Contact />
-            <Footer />
-          </>
-        } />
-        <Route path="/skill/:skillName" element={<SkillDetail />} />
+        <Route path="/" element={<HomeView />} />
+        <Route path="/skill/:skillName" element={<SkillDetailView />} />
       </Routes>
+      <Footer />
       <ScrollToTop />
     </div>
   )

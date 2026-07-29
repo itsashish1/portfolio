@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import Tilt3DCard from './Tilt3DCard'
 import './About.css'
 
 export default function About() {
@@ -186,23 +187,25 @@ export default function About() {
         <div className="about-content">
           <div className="about-profile">
             {!loading && userInfo.avatar_url && (
-              <div className="profile-card">
-                <img src={userInfo.avatar_url} alt={userInfo.name} className="profile-avatar" />
-                <h3 className="profile-name">{userInfo.name}</h3>
-                {userInfo.location && (
-                  <p className="profile-location">
-                    <i className="fas fa-map-marker-alt"></i> {userInfo.location}
-                  </p>
-                )}
-                {userInfo.bio && (
-                  <p className="profile-bio">{userInfo.bio}</p>
-                )}
-                <div className="profile-links">
-                  <a href={userInfo.profile_url} target="_blank" rel="noopener noreferrer" className="profile-link-btn">
-                    <i className="fab fa-github"></i> GitHub Profile
-                  </a>
+              <Tilt3DCard maxTilt={12}>
+                <div className="profile-card">
+                  <img src={userInfo.avatar_url} alt={userInfo.name} className="profile-avatar" />
+                  <h3 className="profile-name">{userInfo.name}</h3>
+                  {userInfo.location && (
+                    <p className="profile-location">
+                      <i className="fas fa-map-marker-alt"></i> {userInfo.location}
+                    </p>
+                  )}
+                  {userInfo.bio && (
+                    <p className="profile-bio">{userInfo.bio}</p>
+                  )}
+                  <div className="profile-links">
+                    <a href={userInfo.profile_url} target="_blank" rel="noopener noreferrer" className="profile-link-btn">
+                      <i className="fab fa-github"></i> GitHub Profile
+                    </a>
+                  </div>
                 </div>
-              </div>
+              </Tilt3DCard>
             )}
           </div>
 
@@ -276,37 +279,48 @@ export default function About() {
         )}
 
         <div className="about-highlights">
-          <div className="highlight-card">
-            <div className="highlight-icon">
-              <i className="fas fa-code-branch"></i>
+          <Tilt3DCard maxTilt={10}>
+            <div className="highlight-card">
+              <div className="highlight-icon">
+                <i className="fas fa-code-branch"></i>
+              </div>
+              <h3>Repositories</h3>
+              <p className="stat-number">{userInfo.public_repos}</p>
+              <p className="stat-label">Public Projects</p>
             </div>
-            <h3>Repositories</h3>
-            <p className="stat-number">{userInfo.public_repos}</p>
-            <p className="stat-label">Public Projects</p>
-          </div>
-          <div className="highlight-card">
-            <div className="highlight-icon">
-              <i className="fas fa-star"></i>
+          </Tilt3DCard>
+
+          <Tilt3DCard maxTilt={10}>
+            <div className="highlight-card">
+              <div className="highlight-icon">
+                <i className="fas fa-star"></i>
+              </div>
+              <h3>Total Stars</h3>
+              <p className="stat-number">{stats.totalStars}</p>
+              <p className="stat-label">Community Recognition</p>
             </div>
-            <h3>Total Stars</h3>
-            <p className="stat-number">{stats.totalStars}</p>
-            <p className="stat-label">Community Recognition</p>
-          </div>
-          <div className="highlight-card">
-            <div className="highlight-icon">
-              <i className="fas fa-users"></i>
+          </Tilt3DCard>
+
+          <Tilt3DCard maxTilt={10}>
+            <div className="highlight-card">
+              <div className="highlight-icon">
+                <i className="fas fa-users"></i>
+              </div>
+              <h3>Community</h3>
+              <p className="stat-number">{userInfo.followers}</p>
+              <p className="stat-label">Followers on GitHub</p>
             </div>
-            <h3>Community</h3>
-            <p className="stat-number">{userInfo.followers}</p>
-            <p className="stat-label">Followers on GitHub</p>
-          </div>
-          <div className="highlight-card">
-            <div className="highlight-icon">
-              <i className="fas fa-lightbulb"></i>
+          </Tilt3DCard>
+
+          <Tilt3DCard maxTilt={10}>
+            <div className="highlight-card">
+              <div className="highlight-icon">
+                <i className="fas fa-lightbulb"></i>
+              </div>
+              <h3>Innovation</h3>
+              <p>Creative solutions, emerging tech, continuous learning</p>
             </div>
-            <h3>Innovation</h3>
-            <p>Creative solutions, emerging tech, continuous learning</p>
-          </div>
+          </Tilt3DCard>
         </div>
       </div>
     </section>

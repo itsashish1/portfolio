@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react'
+import Tilt3DCard from './Tilt3DCard'
 import './LeetCode.css'
 
 export default function LeetCode() {
   const LEETCODE_USERNAME = 'itsashish1'
   const LEETCODE_PROFILE_URL = `https://leetcode.com/u/${LEETCODE_USERNAME}/`
-  const GITHUB_SOLUTIONS_URL = 'https://github.com/itsashish1/LeetCode-Solutions' // Assuming this exists
+  const GITHUB_SOLUTIONS_URL = 'https://github.com/itsashish1/LeetCode-Solutions'
 
   const [stats, setStats] = useState({
     totalSolved: 56,
@@ -39,57 +40,58 @@ export default function LeetCode() {
   return (
     <section id="leetcode" className="leetcode-section section-animate">
       <div className="container">
-        <h2 className="section-title">LeetCode Journey</h2>
-
-        {/* Profile Link */}
-        <div className="profile-link">
-          <h3>My LeetCode Profile</h3>
-          <p>Track my problem-solving progress and coding journey</p>
-          <button
-            className="btn-primary"
-            onClick={() => openLink(LEETCODE_PROFILE_URL)}
-          >
-            View LeetCode Profile
-          </button>
-        </div>
+        <h2 className="section-title">LeetCode & Algorithm Journey</h2>
+        <p className="section-subtitle">Problem solving metrics, DSA mastery & competitive programming stats</p>
 
         {/* Statistics Cards */}
         <div className="stats-grid">
-          <div className={`stat-card ${hasAnimated ? 'animate' : ''}`}>
-            <div className="stat-icon">🎯</div>
-            <div className="stat-number">{stats.totalSolved}</div>
-            <div className="stat-label">Total Solved</div>
-          </div>
+          <Tilt3DCard maxTilt={10}>
+            <div className={`stat-card ${hasAnimated ? 'animate' : ''}`}>
+              <div className="stat-icon">🎯</div>
+              <div className="stat-number">{stats.totalSolved}</div>
+              <div className="stat-label">Total Solved</div>
+            </div>
+          </Tilt3DCard>
 
-          <div className={`stat-card ${hasAnimated ? 'animate' : ''}`}>
-            <div className="stat-icon">🟢</div>
-            <div className="stat-number">{stats.easySolved}</div>
-            <div className="stat-label">Easy Problems</div>
-          </div>
+          <Tilt3DCard maxTilt={10}>
+            <div className={`stat-card ${hasAnimated ? 'animate' : ''}`}>
+              <div className="stat-icon">🟢</div>
+              <div className="stat-number">{stats.easySolved}</div>
+              <div className="stat-label">Easy Problems</div>
+            </div>
+          </Tilt3DCard>
 
-          <div className={`stat-card ${hasAnimated ? 'animate' : ''}`}>
-            <div className="stat-icon">🟡</div>
-            <div className="stat-number">{stats.mediumSolved}</div>
-            <div className="stat-label">Medium Problems</div>
-          </div>
+          <Tilt3DCard maxTilt={10}>
+            <div className={`stat-card ${hasAnimated ? 'animate' : ''}`}>
+              <div className="stat-icon">🟡</div>
+              <div className="stat-number">{stats.mediumSolved}</div>
+              <div className="stat-label">Medium Problems</div>
+            </div>
+          </Tilt3DCard>
 
-          <div className={`stat-card ${hasAnimated ? 'animate' : ''}`}>
-            <div className="stat-icon">🔴</div>
-            <div className="stat-number">{stats.hardSolved}</div>
-            <div className="stat-label">Hard Problems</div>
-          </div>
+          <Tilt3DCard maxTilt={10}>
+            <div className={`stat-card ${hasAnimated ? 'animate' : ''}`}>
+              <div className="stat-icon">🔴</div>
+              <div className="stat-number">{stats.hardSolved}</div>
+              <div className="stat-label">Hard Problems</div>
+            </div>
+          </Tilt3DCard>
 
-          <div className={`stat-card ${hasAnimated ? 'animate' : ''}`}>
-            <div className="stat-icon">📊</div>
-            <div className="stat-number">#{stats.rank.toLocaleString()}</div>
-            <div className="stat-label">Global Rank</div>
-          </div>
+          <Tilt3DCard maxTilt={10}>
+            <div className={`stat-card ${hasAnimated ? 'animate' : ''}`}>
+              <div className="stat-icon">📊</div>
+              <div className="stat-number">#{stats.rank.toLocaleString()}</div>
+              <div className="stat-label">Global Rank</div>
+            </div>
+          </Tilt3DCard>
 
-          <div className={`stat-card ${hasAnimated ? 'animate' : ''}`}>
-            <div className="stat-icon">✅</div>
-            <div className="stat-number">{stats.acceptance}%</div>
-            <div className="stat-label">Acceptance Rate</div>
-          </div>
+          <Tilt3DCard maxTilt={10}>
+            <div className={`stat-card ${hasAnimated ? 'animate' : ''}`}>
+              <div className="stat-icon">✅</div>
+              <div className="stat-number">{stats.acceptance}%</div>
+              <div className="stat-label">Acceptance Rate</div>
+            </div>
+          </Tilt3DCard>
         </div>
 
         {/* Problem Difficulty Chart */}

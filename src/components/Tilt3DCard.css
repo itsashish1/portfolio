@@ -1,0 +1,27 @@
+.tilt-3d-card-wrapper {
+  position: relative;
+  border-radius: var(--radius-lg);
+  perspective: 1000px;
+  will-change: transform;
+}
+
+.tilt-3d-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  overflow: hidden;
+  transform-style: preserve-3d;
+}
+
+.tilt-3d-glare-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  border-radius: inherit;
+  transition: opacity 0.3s ease;
+  z-index: 10;
+}

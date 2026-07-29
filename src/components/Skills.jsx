@@ -1,4 +1,7 @@
+import React from 'react'
 import { useNavigate } from 'react-router-dom'
+import Tilt3DCard from './Tilt3DCard'
+import Skills3DSphere from './Skills3DSphere'
 import './Skills.css'
 
 export default function Skills() {
@@ -52,32 +55,41 @@ export default function Skills() {
     }
   ]
 
+  const allSkills = skillsData.flatMap(cat => cat.skills)
+
   return (
     <section id="skills" className="skills section-animate">
       <div className="container">
         <div className="section-header">
-          <h2 className="section-title">Skills & Expertise</h2>
+          <h2 className="section-title">Skills & Technical Matrix</h2>
           <div className="title-underline"></div>
+          <p className="section-subtitle">Interactive 3D Skill Tag Cloud & Engineering Competencies</p>
         </div>
+
+        {/* Interactive 3D Sphere Cloud */}
+        <Skills3DSphere skills={allSkills} />
+
         <div className="skills-grid">
           {skillsData.map((skill, index) => (
-            <div key={index} className="skill-category">
-              <div className="category-header">
-                <i className={skill.icon}></i>
-                <h3>{skill.category}</h3>
+            <Tilt3DCard key={index} maxTilt={10} className="skill-card-tilt-wrapper">
+              <div className="skill-category">
+                <div className="category-header">
+                  <i className={skill.icon}></i>
+                  <h3>{skill.category}</h3>
+                </div>
+                <div className="skill-items">
+                  {skill.skills.map((item, idx) => (
+                    <span 
+                      key={idx} 
+                      className="skill-tag" 
+                      onClick={() => navigate(`/skill/${item.replace(/\s+/g, '-')}`)}
+                    >
+                      {item}
+                    </span>
+                  ))}
+                </div>
               </div>
-              <div className="skill-items">
-                {skill.skills.map((item, idx) => (
-                  <span 
-                    key={idx} 
-                    className="skill-tag" 
-                    onClick={() => navigate(`/skill/${item.replace(/\s+/g, '-')}`)}
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
+            </Tilt3DCard>
           ))}
         </div>
       </div>

@@ -11,27 +11,28 @@
 }
 
 .skill-category {
-  background: rgba(16, 18, 22, 0.85);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(16, 185, 129, 0.25);
-  border-radius: var(--radius-md);
-  padding: 1.8rem 1.5rem;
+  background: rgba(18, 18, 22, 0.75);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 24px;
+  padding: 2rem 1.8rem;
   height: 100%;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7);
-  transition: all 0.25s ease;
+  box-shadow: var(--shadow-ambient);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .skill-category:hover {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 30px rgba(16, 185, 129, 0.25);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: var(--shadow-hover);
+  transform: translateY(-3px);
 }
 
 .category-header {
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  margin-bottom: 1.4rem;
-  padding-bottom: 0.8rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
@@ -41,8 +42,7 @@
 }
 
 .category-header h3 {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1.05rem;
+  font-size: 1.15rem;
   font-weight: 700;
   color: var(--text-primary);
 }
@@ -54,22 +54,21 @@
 }
 
 .skill-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.78rem;
-  font-weight: 600;
+  font-size: 0.85rem;
+  font-weight: 500;
   color: var(--text-secondary);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 0.4rem 0.8rem;
-  border-radius: var(--radius-sm);
+  padding: 0.45rem 0.95rem;
+  border-radius: 9999px;
   cursor: pointer;
   transition: all 0.2s ease;
 }
 
 .skill-tag:hover {
-  color: #08090b;
+  color: #ffffff;
   background: var(--primary-color);
   border-color: var(--primary-color);
-  box-shadow: var(--glow-emerald);
+  box-shadow: 0 4px 15px rgba(41, 151, 255, 0.35);
   transform: translateY(-2px);
 }

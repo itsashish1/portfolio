@@ -1,116 +1,99 @@
-/* Cyber HUD Navbar Wrapper */
-.hud-navbar-wrapper {
+/* Apple Floating Glass Pill Navbar Wrapper */
+.apple-navbar-wrapper {
   position: fixed;
-  top: 1.2rem;
+  top: 1.25rem;
   left: 50%;
   transform: translateX(-50%);
-  width: min(94%, 1100px);
+  width: min(92%, 1000px);
   z-index: 1000;
-  transition: all 0.3s ease;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.hud-navbar {
+.apple-navbar {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 1.25rem;
-  background: rgba(16, 18, 22, 0.85);
+  padding: 0.55rem 1.4rem;
+  background: rgba(18, 18, 22, 0.7);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(16, 185, 129, 0.25);
-  border-radius: var(--radius-md);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.1);
-  transition: all 0.3s ease;
-  font-family: 'JetBrains Mono', monospace;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 9999px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.hud-navbar-wrapper.scrolled .hud-navbar {
-  background: rgba(8, 9, 11, 0.95);
-  border-color: var(--primary-color);
-  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.8), 0 0 25px rgba(16, 185, 129, 0.25);
+.apple-navbar-wrapper.scrolled .apple-navbar {
+  background: rgba(10, 10, 12, 0.9);
+  border-color: rgba(255, 255, 255, 0.15);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.7);
 }
 
 /* Brand */
-.hud-brand {
+.apple-brand {
   display: flex;
   align-items: center;
   gap: 0.6rem;
   text-decoration: none;
-  font-size: 0.85rem;
+  font-size: 0.92rem;
+  font-weight: 600;
   color: var(--text-primary);
-}
-
-.hud-status-dot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--primary-color);
-  box-shadow: 0 0 10px var(--primary-color);
-  animation: hudPulse 1.8s infinite;
-}
-
-@keyframes hudPulse {
-  0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(1.2); }
-}
-
-.hud-brand-tag {
-  color: var(--primary-color);
-  font-weight: 700;
-  font-size: 0.78rem;
-}
-
-.hud-brand-name {
-  font-family: 'Inter', sans-serif;
-  font-weight: 700;
   letter-spacing: -0.01em;
 }
 
+.brand-symbol {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+}
+
+.brand-text {
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
 /* Menu */
-.hud-menu {
+.apple-menu {
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 0.3rem;
+  gap: 0.2rem;
   margin: 0;
   padding: 0;
 }
 
-.hud-link {
-  font-size: 0.78rem;
-  font-weight: 600;
+.apple-link {
+  font-size: 0.85rem;
+  font-weight: 500;
   color: var(--text-secondary);
   text-decoration: none;
-  padding: 0.4rem 0.75rem;
-  border-radius: var(--radius-sm);
+  padding: 0.45rem 0.95rem;
+  border-radius: 9999px;
   transition: all 0.2s ease;
-  letter-spacing: 0.02em;
 }
 
-.hud-link:hover {
-  color: var(--primary-light);
-  background: rgba(16, 185, 129, 0.1);
+.apple-link:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.06);
 }
 
-.hud-link.active {
+.apple-link.active {
   color: #ffffff;
-  background: rgba(16, 185, 129, 0.2);
-  border: 1px solid rgba(16, 185, 129, 0.4);
-  box-shadow: 0 0 12px rgba(16, 185, 129, 0.2);
+  background: rgba(255, 255, 255, 0.12);
+  font-weight: 600;
 }
 
 /* Controls */
-.hud-controls {
+.apple-controls {
   display: flex;
   align-items: center;
   gap: 0.6rem;
 }
 
-.hud-theme-toggle {
+.apple-theme-toggle {
   width: 32px;
   height: 32px;
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.04);
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.05);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text-primary);
   cursor: pointer;
@@ -121,32 +104,29 @@
   transition: all 0.2s ease;
 }
 
-.hud-theme-toggle:hover {
-  background: rgba(16, 185, 129, 0.15);
-  border-color: var(--primary-color);
-  color: var(--primary-color);
+.apple-theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.12);
 }
 
-.hud-cta-btn {
-  font-size: 0.78rem;
-  font-weight: 700;
-  color: #08090b;
+.apple-cta-btn {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #ffffff;
   background: var(--primary-color);
-  padding: 0.4rem 0.9rem;
-  border-radius: var(--radius-sm);
+  padding: 0.45rem 1.1rem;
+  border-radius: 9999px;
   text-decoration: none;
   transition: all 0.2s ease;
-  letter-spacing: 0.05em;
-  box-shadow: var(--glow-emerald);
+  box-shadow: 0 4px 15px rgba(41, 151, 255, 0.3);
 }
 
-.hud-cta-btn:hover {
-  background: var(--primary-light);
-  box-shadow: 0 0 20px rgba(16, 185, 129, 0.6);
+.apple-cta-btn:hover {
+  background: var(--primary-hover);
+  box-shadow: 0 6px 20px rgba(41, 151, 255, 0.5);
   transform: translateY(-1px);
 }
 
-.hud-hamburger {
+.apple-hamburger {
   display: none;
   flex-direction: column;
   gap: 4px;
@@ -155,34 +135,35 @@
   cursor: pointer;
 }
 
-.hud-hamburger span {
+.apple-hamburger span {
   width: 20px;
   height: 2px;
-  background: var(--primary-color);
+  background: var(--text-primary);
   border-radius: 1px;
 }
 
-@media (max-width: 992px) {
-  .hud-menu {
+@media (max-width: 868px) {
+  .apple-menu {
     display: none;
   }
-  .hud-hamburger {
+  .apple-hamburger {
     display: flex;
   }
-  .hud-menu.active {
+  .apple-menu.active {
     display: flex;
     flex-direction: column;
     position: absolute;
     top: 55px;
     left: 0;
     width: 100%;
-    background: rgba(16, 18, 22, 0.98);
-    border: 1px solid var(--primary-color);
-    border-radius: var(--radius-md);
+    background: rgba(18, 18, 22, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 1.25rem;
     padding: 1rem;
-    gap: 0.5rem;
+    gap: 0.4rem;
   }
-  .hud-menu.active .hud-link {
+  .apple-menu.active .apple-link {
     width: 100%;
     text-align: center;
     padding: 0.6rem;

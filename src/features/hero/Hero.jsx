@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import Hero3DCanvas from '../../components/3d/Hero3DCanvas'
 import Tilt3DCard from '../../components/3d/Tilt3DCard'
@@ -8,115 +8,115 @@ export default function Hero() {
   const GITHUB_USERNAME = 'itsashish1'
   const LINKEDIN_URL = 'https://www.linkedin.com/in/gtc-ashish'
   
-  const [activeTab, setActiveTab] = useState('automation')
+  const [profileData, setProfileData] = useState({
+    name: 'Ashish Yadav',
+    avatar: '',
+    bio: '',
+    followers: 0,
+    repos: 0,
+    githubUrl: `https://github.com/${GITHUB_USERNAME}`
+  })
 
-  const codeSnippets = {
-    automation: `// PACSystems C-Toolkit Industrial Logic
-#include <pacsystems/kernel.hpp>
+  useEffect(() => {
+    const fetchGitHubData = async () => {
+      try {
+        const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`)
+        const data = await response.json()
+        
+        setProfileData({
+          name: data.name || 'Ashish Yadav',
+          avatar: data.avatar_url,
+          bio: data.bio || 'Industrial Automation Engineer & Full Stack Developer',
+          followers: data.followers || 0,
+          repos: data.public_repos || 0,
+          githubUrl: data.html_url || `https://github.com/${GITHUB_USERNAME}`
+        })
+      } catch (error) {
+        console.error('Error fetching GitHub data:', error)
+      }
+    }
 
-namespace Automation {
-    class ControllerEngine {
-    public:
-        void InitializeScanCycle() {
-            PME::MapMemoryBlocks();
-            DeterministicLoop::Run();
-        }
-    };
-}`,
-    web: `// Next.js & Three.js Cyber Matrix Engine
-import { Canvas, CyberMesh } from '@three/react'
-
-export const CyberArchitect = () => (
-    <Canvas fps={60} engine="WebGL2">
-        <CyberMesh scale={1.2} glow="#10b981" />
-    </Canvas>
-)`
-  }
+    fetchGitHubData()
+  }, [])
 
   return (
     <section id="hero" className="hero">
       {/* 3D WebGL Background Scene */}
       <Hero3DCanvas />
 
-      {/* Cyber Watermark */}
-      <div className="hero-watermark">&lt;ENGINEER /&gt;</div>
-
       <div className="hero-content container">
-        {/* Left Cyber HUD Text */}
+        {/* Left Copy Column */}
         <motion.div 
           className="hero-text"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, ease: 'easeOut' }}
+          transition={{ duration: 0.8, cubicBezier: [0.16, 1, 0.3, 1] }}
         >
-          <div className="cyber-hud-badge">
-            <span className="cyber-pulse"></span>
-            <span>[SYS_ONLINE :: ARCHITECT_V2]</span>
+          <div className="apple-badge">
+            <span className="badge-dot"></span>
+            <span>Available for Full Stack & Automation Projects</span>
           </div>
 
           <h1 className="hero-title">
-            Architecting <span className="cyber-gradient-text">Precision</span> Code & Cyber Systems
+            Engineering <span className="apple-gradient-text">Precision.</span>
           </h1>
 
+          <p className="hero-subtitle">
+            Architecting deterministic industrial logic & modern web applications.
+          </p>
+
           <p className="hero-description">
-            B.Tech Computer Science Engineer specializing in deterministic PACSystems C++ logic, 
-            industrial automation, and high-performance React/Next.js WebGL applications.
+            B.Tech Computer Science Engineer specializing in PACSystems C++ logic programming, 
+            embedded control systems, and high-performance React web interfaces.
           </p>
 
           <div className="hero-buttons">
-            <a href={`https://github.com/${GITHUB_USERNAME}`} target="_blank" rel="noopener noreferrer" className="btn btn-cyber-primary">
-              <i className="fab fa-github"></i> ACCESS GITHUB
+            <a href={profileData.githubUrl} target="_blank" rel="noopener noreferrer" className="btn btn-apple-primary">
+              <i className="fab fa-github"></i> GitHub Profile
             </a>
-            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="btn btn-cyber-secondary">
-              <i className="fab fa-linkedin"></i> LINKEDIN HUD
+            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="btn btn-apple-secondary">
+              <i className="fab fa-linkedin"></i> Connect on LinkedIn
             </a>
           </div>
         </motion.div>
 
-        {/* Right Holographic 3D Terminal */}
+        {/* Right Apple 3D Glass Profile Showcase */}
         <motion.div 
-          className="hero-terminal-wrapper"
-          initial={{ opacity: 0, scale: 0.9 }}
+          className="hero-visual"
+          initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
+          transition={{ duration: 0.8, delay: 0.2, cubicBezier: [0.16, 1, 0.3, 1] }}
         >
-          <Tilt3DCard maxTilt={15}>
-            <div className="cyber-terminal-3d">
-              <div className="terminal-corner top-left">[+]</div>
-              <div className="terminal-corner top-right">[+]</div>
-
-              <div className="cyber-terminal-header">
-                <div className="cyber-dots">
-                  <span className="cyber-dot red"></span>
-                  <span className="cyber-dot yellow"></span>
-                  <span className="cyber-dot green"></span>
-                </div>
-
-                <div className="cyber-tabs">
-                  <button 
-                    className={`cyber-tab ${activeTab === 'automation' ? 'active' : ''}`}
-                    onClick={() => setActiveTab('automation')}
-                  >
-                    <i className="fas fa-microchip"></i> automation.cpp
-                  </button>
-                  <button 
-                    className={`cyber-tab ${activeTab === 'web' ? 'active' : ''}`}
-                    onClick={() => setActiveTab('web')}
-                  >
-                    <i className="fab fa-react"></i> CyberMatrix.tsx
-                  </button>
-                </div>
+          <Tilt3DCard maxTilt={12}>
+            <div className="apple-glass-card">
+              <div className="card-image-wrapper">
+                {profileData.avatar ? (
+                  <img src={profileData.avatar} alt={profileData.name} className="profile-image-apple" />
+                ) : (
+                  <div className="profile-avatar-placeholder">
+                    <i className="fas fa-user-code"></i>
+                  </div>
+                )}
               </div>
-
-              <div className="cyber-terminal-body">
-                <pre>
-                  <code>{codeSnippets[activeTab]}</code>
-                </pre>
-              </div>
-
-              <div className="cyber-terminal-footer">
-                <span className="status-online"><i className="fas fa-check-circle"></i> SYSTEM_SCAN_SAFE</span>
-                <span className="status-metric">C++ / REACT 18</span>
+              
+              <div className="card-info">
+                <h3>{profileData.name}</h3>
+                <p>Full Stack & Industrial Automation</p>
+                
+                <div className="apple-stats-row">
+                  <div className="apple-stat-item">
+                    <span className="stat-num">{profileData.repos}</span>
+                    <span className="stat-lbl">Repos</span>
+                  </div>
+                  <div className="apple-stat-item">
+                    <span className="stat-num">{profileData.followers}</span>
+                    <span className="stat-lbl">Followers</span>
+                  </div>
+                  <div className="apple-stat-item">
+                    <span className="stat-num">56+</span>
+                    <span className="stat-lbl">LeetCode</span>
+                  </div>
+                </div>
               </div>
             </div>
           </Tilt3DCard>
@@ -125,7 +125,7 @@ export const CyberArchitect = () => (
 
       <div className="hero-scroll-indicator">
         <a href="#about">
-          <span className="cyber-mouse-wheel"></span>
+          <span className="apple-mouse-wheel"></span>
         </a>
       </div>
     </section>

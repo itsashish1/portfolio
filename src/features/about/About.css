@@ -5,100 +5,99 @@
 
 .about-content {
   display: grid;
-  grid-template-columns: 0.8fr 1.2fr;
-  gap: 3rem;
+  grid-template-columns: 0.85fr 1.15fr;
+  gap: 3.5rem;
   align-items: center;
   margin-bottom: 4rem;
 }
 
 .profile-card {
-  background: rgba(16, 18, 22, 0.85);
-  backdrop-filter: blur(20px);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  border-radius: var(--radius-md);
-  padding: 2.2rem 1.8rem;
+  background: rgba(18, 18, 22, 0.75);
+  backdrop-filter: blur(24px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
   text-align: center;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.7), 0 0 20px rgba(16, 185, 129, 0.1);
-  position: relative;
+  box-shadow: var(--shadow-ambient);
 }
 
 .profile-avatar {
-  width: 130px;
-  height: 130px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   border: 3px solid var(--primary-color);
-  box-shadow: var(--glow-emerald);
   margin: 0 auto 1.2rem;
   object-fit: cover;
+  box-shadow: 0 10px 25px rgba(41, 151, 255, 0.3);
 }
 
 .profile-name {
   font-size: 1.4rem;
-  font-weight: 800;
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 0.3rem;
 }
 
 .profile-location {
   color: var(--primary-color);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
+  font-weight: 500;
   margin-bottom: 1rem;
 }
 
 .profile-bio {
   color: var(--text-secondary);
-  font-size: 0.92rem;
+  font-size: 0.95rem;
   margin-bottom: 1.5rem;
+  line-height: 1.6;
 }
 
 .profile-link-btn {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  padding: 0.6rem 1.2rem;
-  background: rgba(16, 185, 129, 0.15);
-  border: 1px solid rgba(16, 185, 129, 0.3);
-  color: var(--primary-color);
-  border-radius: var(--radius-sm);
+  padding: 0.6rem 1.4rem;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--text-primary);
+  border-radius: 9999px;
   text-decoration: none;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.85rem;
+  font-weight: 600;
   transition: all 0.2s ease;
 }
 
 .profile-link-btn:hover {
   background: var(--primary-color);
-  color: #08090b;
-  box-shadow: var(--glow-emerald);
+  color: #ffffff;
+  box-shadow: 0 4px 20px rgba(41, 151, 255, 0.4);
 }
 
 .about-intro {
-  font-size: 1.2rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  color: var(--primary-light);
+  color: var(--text-primary);
   margin-bottom: 1.2rem;
-  line-height: 1.5;
+  line-height: 1.4;
 }
 
 .about-para {
   color: var(--text-secondary);
-  font-size: 1rem;
+  font-size: 1.02rem;
   line-height: 1.7;
   margin-bottom: 1.2rem;
 }
 
-/* Tech Stack Cyber Grid */
+/* Tech Stack Grid */
 .tech-stack {
-  margin-top: 3.5rem;
+  margin-top: 4rem;
 }
 
 .tech-stack h3 {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1.25rem;
+  font-size: 1.35rem;
+  font-weight: 700;
   color: var(--text-primary);
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.8rem;
 }
 
 .tech-list {
@@ -108,16 +107,16 @@
 }
 
 .tech-card {
-  background: rgba(16, 18, 22, 0.7);
+  background: rgba(18, 18, 22, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-md);
-  padding: 1.4rem;
-  transition: all 0.25s ease;
+  border-radius: 20px;
+  padding: 1.5rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .tech-card:hover {
-  border-color: var(--primary-color);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6), 0 0 20px rgba(16, 185, 129, 0.15);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
   transform: translateY(-3px);
 }
 
@@ -135,7 +134,7 @@
 }
 
 .tech-title i {
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   color: var(--primary-color);
 }
 
@@ -146,16 +145,16 @@
 }
 
 .tech-count {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
+  font-size: 0.78rem;
+  font-weight: 600;
   color: var(--primary-color);
-  background: rgba(16, 185, 129, 0.15);
-  padding: 0.2rem 0.6rem;
+  background: rgba(41, 151, 255, 0.12);
+  padding: 0.2rem 0.65rem;
   border-radius: 9999px;
 }
 
 .tech-description {
-  font-size: 0.88rem;
+  font-size: 0.9rem;
   color: var(--text-muted);
   line-height: 1.5;
 }
@@ -169,17 +168,17 @@
 }
 
 .highlight-card {
-  background: rgba(16, 18, 22, 0.8);
-  border: 1px solid rgba(16, 185, 129, 0.2);
-  border-radius: var(--radius-md);
+  background: rgba(18, 18, 22, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
   padding: 1.8rem 1.4rem;
   text-align: center;
-  transition: all 0.25s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .highlight-card:hover {
   border-color: var(--primary-color);
-  box-shadow: 0 0 25px rgba(16, 185, 129, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
   transform: translateY(-4px);
 }
 
@@ -190,7 +189,6 @@
 }
 
 .stat-number {
-  font-family: 'JetBrains Mono', monospace;
   font-size: 2.2rem;
   font-weight: 800;
   color: var(--text-primary);
@@ -198,7 +196,7 @@
 }
 
 .stat-label {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--text-secondary);
 }
 

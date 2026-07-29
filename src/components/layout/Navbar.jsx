@@ -30,32 +30,31 @@ export default function Navbar({ isDarkMode, toggleTheme }) {
   }
 
   const navLinks = [
-    { id: 'hero', label: '01. HOME' },
-    { id: 'about', label: '02. ABOUT' },
-    { id: 'skills', label: '03. MATRIX' },
-    { id: 'github', label: '04. REPOS' },
-    { id: 'leetcode', label: '05. STATS' },
-    { id: 'learning', label: '06. LOGS' },
-    { id: 'contact', label: '07. TRANSMIT' },
+    { id: 'hero', label: 'Overview' },
+    { id: 'about', label: 'About' },
+    { id: 'skills', label: 'Skills' },
+    { id: 'github', label: 'GitHub' },
+    { id: 'leetcode', label: 'LeetCode' },
+    { id: 'learning', label: 'Learning' },
+    { id: 'contact', label: 'Contact' },
   ]
 
   return (
-    <header className={`hud-navbar-wrapper ${isScrolled ? 'scrolled' : ''}`}>
-      <nav className="hud-navbar" id="navbar">
-        {/* Cyber Brand Tag */}
-        <a href="#hero" className="hud-brand">
-          <span className="hud-status-dot"></span>
-          <span className="hud-brand-tag">[SYS_ONLINE]</span>
-          <span className="hud-brand-name">Ashish Yadav</span>
+    <header className={`apple-navbar-wrapper ${isScrolled ? 'scrolled' : ''}`}>
+      <nav className="apple-navbar" id="navbar">
+        {/* Apple Brand */}
+        <a href="#hero" className="apple-brand">
+          <span className="brand-symbol"></span>
+          <span className="brand-text">Ashish Yadav</span>
         </a>
 
-        {/* HUD Nav Links */}
-        <ul className={`hud-menu ${isMenuOpen ? 'active' : ''}`}>
+        {/* Minimal Nav Links */}
+        <ul className={`apple-menu ${isMenuOpen ? 'active' : ''}`}>
           {navLinks.map(link => (
             <li key={link.id}>
               <a
                 href={`#${link.id}`}
-                className={`hud-link ${activeSection === link.id ? 'active' : ''}`}
+                className={`apple-link ${activeSection === link.id ? 'active' : ''}`}
                 onClick={handleNavClick}
               >
                 {link.label}
@@ -64,18 +63,18 @@ export default function Navbar({ isDarkMode, toggleTheme }) {
           ))}
         </ul>
 
-        {/* Cyber Controls */}
-        <div className="hud-controls">
-          <button className="hud-theme-toggle" onClick={toggleTheme} title="Toggle Theme">
+        {/* Controls */}
+        <div className="apple-controls">
+          <button className="apple-theme-toggle" onClick={toggleTheme} title="Toggle Theme">
             <i className={`fas ${isDarkMode ? 'fa-moon' : 'fa-sun'}`}></i>
           </button>
           
-          <a href="#contact" className="hud-cta-btn">
-            <span className="cta-icon">⚡</span> CONNECT
+          <a href="#contact" className="apple-cta-btn">
+            Connect
           </a>
 
           <button 
-            className={`hud-hamburger ${isMenuOpen ? 'active' : ''}`} 
+            className={`apple-hamburger ${isMenuOpen ? 'active' : ''}`} 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >

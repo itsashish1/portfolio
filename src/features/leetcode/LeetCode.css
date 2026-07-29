@@ -12,18 +12,18 @@
 }
 
 .stat-card {
-  background: rgba(16, 18, 22, 0.85);
-  backdrop-filter: blur(16px);
-  border: 1px solid rgba(16, 185, 129, 0.2);
-  border-radius: var(--radius-md);
-  padding: 1.8rem 1.2rem;
+  background: rgba(18, 18, 22, 0.75);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 1.8rem 1.4rem;
   text-align: center;
-  transition: all 0.25s ease;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .stat-card:hover {
-  border-color: var(--primary-color);
-  box-shadow: 0 0 25px rgba(16, 185, 129, 0.2);
+  border-color: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
   transform: translateY(-4px);
 }
 
@@ -33,30 +33,29 @@
 }
 
 .stat-number {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 2rem;
+  font-size: 2.2rem;
   font-weight: 800;
   color: var(--text-primary);
   margin-bottom: 0.2rem;
 }
 
 .stat-label {
-  font-size: 0.82rem;
+  font-size: 0.85rem;
   color: var(--text-muted);
 }
 
 /* Chart Section */
 .chart-section {
-  background: rgba(16, 18, 22, 0.8);
+  background: rgba(18, 18, 22, 0.75);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-md);
-  padding: 2rem;
+  border-radius: 24px;
+  padding: 2.2rem;
   margin-bottom: 3.5rem;
 }
 
 .chart-section h3 {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 1.8rem;
 }
@@ -75,14 +74,14 @@
 }
 
 .bar-label {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.85rem;
+  font-size: 0.88rem;
+  font-weight: 500;
   color: var(--text-secondary);
 }
 
 .bar {
-  height: 12px;
-  background: rgba(255, 255, 255, 0.05);
+  height: 10px;
+  background: rgba(255, 255, 255, 0.06);
   border-radius: 9999px;
   overflow: hidden;
 }
@@ -93,12 +92,11 @@
   transition: width 1s ease-out;
 }
 
-.bar-fill.easy { background: #10b981; box-shadow: 0 0 10px #10b981; }
-.bar-fill.medium { background: #f59e0b; box-shadow: 0 0 10px #f59e0b; }
-.bar-fill.hard { background: #ef4444; box-shadow: 0 0 10px #ef4444; }
+.bar-fill.easy { background: #34c759; }
+.bar-fill.medium { background: #ff9500; }
+.bar-fill.hard { background: #ff3b30; }
 
 .bar-value {
-  font-family: 'JetBrains Mono', monospace;
   font-size: 0.9rem;
   font-weight: 700;
   color: var(--text-primary);
@@ -111,8 +109,8 @@
 }
 
 .topics-section h3 {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1.1rem;
+  font-size: 1.25rem;
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 1.2rem;
 }
@@ -124,19 +122,19 @@
 }
 
 .topic-tag {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 500;
   color: var(--primary-light);
-  background: rgba(16, 185, 129, 0.1);
-  border: 1px solid rgba(16, 185, 129, 0.25);
-  padding: 0.4rem 0.9rem;
-  border-radius: var(--radius-sm);
+  background: rgba(41, 151, 255, 0.1);
+  border: 1px solid rgba(41, 151, 255, 0.2);
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
 }
 
-/* Language and Goals Grid */
-.goals-section h3, .language-section h3, .solutions-section h3, .heatmap-section h3 {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 1.1rem;
+/* Goals Grid */
+.goals-section h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 1.2rem;
 }
@@ -149,15 +147,15 @@
 }
 
 .goal-item {
-  background: rgba(16, 18, 22, 0.7);
+  background: rgba(18, 18, 22, 0.7);
   border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: var(--radius-md);
-  padding: 1.5rem;
-  transition: all 0.25s ease;
+  border-radius: 20px;
+  padding: 1.6rem;
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .goal-item:hover {
-  border-color: var(--primary-color);
+  border-color: rgba(255, 255, 255, 0.2);
   transform: translateY(-3px);
 }
 
@@ -167,12 +165,13 @@
 }
 
 .goal-item h4 {
-  font-size: 1rem;
+  font-size: 1.05rem;
+  font-weight: 700;
   color: var(--text-primary);
   margin-bottom: 0.4rem;
 }
 
 .goal-item p {
-  font-size: 0.85rem;
+  font-size: 0.88rem;
   color: var(--text-muted);
 }

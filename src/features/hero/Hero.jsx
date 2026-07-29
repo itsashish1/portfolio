@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { motion } from 'framer-motion'
 import Hero3DCanvas from '../../components/3d/Hero3DCanvas'
 import Tilt3DCard from '../../components/3d/Tilt3DCard'
@@ -8,111 +8,115 @@ export default function Hero() {
   const GITHUB_USERNAME = 'itsashish1'
   const LINKEDIN_URL = 'https://www.linkedin.com/in/gtc-ashish'
   
-  const [profileData, setProfileData] = useState({
-    name: 'Ashish Yadav',
-    avatar: '',
-    bio: '',
-    followers: 0,
-    repos: 0,
-    githubUrl: `https://github.com/${GITHUB_USERNAME}`
-  })
+  const [activeTab, setActiveTab] = useState('automation')
 
-  useEffect(() => {
-    const fetchGitHubData = async () => {
-      try {
-        const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}`)
-        const data = await response.json()
-        
-        setProfileData({
-          name: data.name || 'Ashish Yadav',
-          avatar: data.avatar_url,
-          bio: data.bio || 'B.Tech Student | Industrial Automation Engineer | Full Stack Developer',
-          followers: data.followers || 0,
-          repos: data.public_repos || 0,
-          githubUrl: data.html_url || `https://github.com/${GITHUB_USERNAME}`
-        })
-      } catch (error) {
-        console.error('Error fetching GitHub data:', error)
-      }
-    }
+  const codeSnippets = {
+    automation: `// PACSystems C-Toolkit Industrial Logic
+#include <pacsystems/kernel.hpp>
 
-    fetchGitHubData()
-  }, [])
+namespace Automation {
+    class ControllerEngine {
+    public:
+        void InitializeScanCycle() {
+            PME::MapMemoryBlocks();
+            DeterministicLoop::Run();
+        }
+    };
+}`,
+    web: `// Next.js & Three.js Cyber Matrix Engine
+import { Canvas, CyberMesh } from '@three/react'
+
+export const CyberArchitect = () => (
+    <Canvas fps={60} engine="WebGL2">
+        <CyberMesh scale={1.2} glow="#10b981" />
+    </Canvas>
+)`
+  }
 
   return (
     <section id="hero" className="hero">
       {/* 3D WebGL Background Scene */}
       <Hero3DCanvas />
 
+      {/* Cyber Watermark */}
+      <div className="hero-watermark">&lt;ENGINEER /&gt;</div>
+
       <div className="hero-content container">
+        {/* Left Cyber HUD Text */}
         <motion.div 
           className="hero-text"
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, ease: 'easeOut' }}
         >
-          <div className="hero-badge">
-            <span className="badge-pulse"></span>
-            <span>Industrial Automation & Full Stack Engineer</span>
+          <div className="cyber-hud-badge">
+            <span className="cyber-pulse"></span>
+            <span>[SYS_ONLINE :: ARCHITECT_V2]</span>
           </div>
 
           <h1 className="hero-title">
-            Architecting <span className="gradient-text">Precision</span> Code & Digital Experiences
+            Architecting <span className="cyber-gradient-text">Precision</span> Code & Cyber Systems
           </h1>
 
-          <p className="hero-subtitle">
-            Engineering precision meets creative web technology
-          </p>
-
           <p className="hero-description">
-            B.Tech Computer Science Engineer specializing in deterministic PACSystems logic, 
-            C++ algorithmic computing, and high-performance React web applications.
+            B.Tech Computer Science Engineer specializing in deterministic PACSystems C++ logic, 
+            industrial automation, and high-performance React/Next.js WebGL applications.
           </p>
-          
-          <div className="hero-profile-stats">
-            <div className="profile-stat">
-              <span className="stat-value">{profileData.repos}</span>
-              <span className="stat-label">Repositories</span>
-            </div>
-            <div className="profile-stat">
-              <span className="stat-value">{profileData.followers}</span>
-              <span className="stat-label">Followers</span>
-            </div>
-            <div className="profile-stat">
-              <span className="stat-value">56+</span>
-              <span className="stat-label">LeetCode Solved</span>
-            </div>
-          </div>
 
           <div className="hero-buttons">
-            <a href={profileData.githubUrl} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-              <i className="fab fa-github"></i> View GitHub
+            <a href={`https://github.com/${GITHUB_USERNAME}`} target="_blank" rel="noopener noreferrer" className="btn btn-cyber-primary">
+              <i className="fab fa-github"></i> ACCESS GITHUB
             </a>
-            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="btn btn-secondary">
-              <i className="fab fa-linkedin"></i> Connect on LinkedIn
+            <a href={LINKEDIN_URL} target="_blank" rel="noopener noreferrer" className="btn btn-cyber-secondary">
+              <i className="fab fa-linkedin"></i> LINKEDIN HUD
             </a>
           </div>
         </motion.div>
 
+        {/* Right Holographic 3D Terminal */}
         <motion.div 
-          className="hero-visual"
+          className="hero-terminal-wrapper"
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2, ease: 'easeOut' }}
         >
           <Tilt3DCard maxTilt={15}>
-            <div className="profile-card-3d">
-              <div className="card-glass-glow"></div>
-              {profileData.avatar ? (
-                <img src={profileData.avatar} alt={profileData.name} className="profile-image-3d" />
-              ) : (
-                <div className="profile-avatar-placeholder">
-                  <i className="fas fa-user-code"></i>
+            <div className="cyber-terminal-3d">
+              <div className="terminal-corner top-left">[+]</div>
+              <div className="terminal-corner top-right">[+]</div>
+
+              <div className="cyber-terminal-header">
+                <div className="cyber-dots">
+                  <span className="cyber-dot red"></span>
+                  <span className="cyber-dot yellow"></span>
+                  <span className="cyber-dot green"></span>
                 </div>
-              )}
-              <div className="card-info-overlay">
-                <h3>{profileData.name}</h3>
-                <p>Full Stack & Automation</p>
+
+                <div className="cyber-tabs">
+                  <button 
+                    className={`cyber-tab ${activeTab === 'automation' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('automation')}
+                  >
+                    <i className="fas fa-microchip"></i> automation.cpp
+                  </button>
+                  <button 
+                    className={`cyber-tab ${activeTab === 'web' ? 'active' : ''}`}
+                    onClick={() => setActiveTab('web')}
+                  >
+                    <i className="fab fa-react"></i> CyberMatrix.tsx
+                  </button>
+                </div>
+              </div>
+
+              <div className="cyber-terminal-body">
+                <pre>
+                  <code>{codeSnippets[activeTab]}</code>
+                </pre>
+              </div>
+
+              <div className="cyber-terminal-footer">
+                <span className="status-online"><i className="fas fa-check-circle"></i> SYSTEM_SCAN_SAFE</span>
+                <span className="status-metric">C++ / REACT 18</span>
               </div>
             </div>
           </Tilt3DCard>
@@ -121,7 +125,7 @@ export default function Hero() {
 
       <div className="hero-scroll-indicator">
         <a href="#about">
-          <span className="mouse-wheel"></span>
+          <span className="cyber-mouse-wheel"></span>
         </a>
       </div>
     </section>

@@ -1,19 +1,16 @@
-/* App-specific styles */
+/* App-specific styles - Full Width Layout */
 .App {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  transition: padding-left 0.3s ease;
-}
-
-@media (min-width: 993px) {
-  .App {
-    padding-left: 250px;
-  }
+  width: 100%;
+  position: relative;
+  overflow-x: hidden;
 }
 
 main {
   flex: 1;
+  width: 100%;
 }
 
 /* Section Header */
@@ -24,18 +21,27 @@ main {
 }
 
 .section-title {
-  margin-bottom: var(--spacing-lg);
+  font-size: 2.25rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--spacing-sm);
   position: relative;
   display: inline-block;
+  color: var(--text-primary);
+}
+
+.section-subtitle {
+  color: var(--text-muted);
+  font-size: 1rem;
+  margin-top: 0.5rem;
 }
 
 .title-underline {
-  height: 4px;
-  width: 100px;
+  height: 3px;
+  width: 80px;
   background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  margin: var(--spacing-md) auto 0;
+  margin: var(--spacing-sm) auto 0;
   border-radius: var(--radius-full);
-  animation: scaleWidth 0.8s ease;
 }
 
 /* Page Load Animation */

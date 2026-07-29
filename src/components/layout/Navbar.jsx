@@ -1,25 +1,17 @@
-import { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Navbar.css'
 
 export default function Navbar({ isDarkMode, toggleTheme }) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isSticky, setIsSticky] = useState(false)
-  const [activeSection, setActiveSection] = useState('')
+  const [activeSection, setActiveSection] = useState('hero')
 
   useEffect(() => {
     const handleScroll = () => {
-      const hero = document.getElementById('hero')
-      const heroHeight = hero ? hero.offsetHeight : 300
-      const trigger = Math.max(heroHeight - 70, 50)
-      setIsSticky(window.scrollY > trigger)
-
-      // Update active nav link
       const sections = document.querySelectorAll('section')
-      let current = ''
+      let current = 'hero'
       sections.forEach(section => {
         const sectionTop = section.offsetTop
-        const sectionHeight = section.clientHeight
-        if (window.pageYOffset >= sectionTop - 200) {
+        if (window.pageYOffset >= sectionTop - 250) {
           current = section.getAttribute('id')
         }
       })
@@ -34,34 +26,33 @@ export default function Navbar({ isDarkMode, toggleTheme }) {
     setIsMenuOpen(false)
   }
 
+  const navItems = [
+    { id: 'hero', label: 'Home', icon: 'fas fa-home' },
+    { id: 'about', label: 'About', icon: 'fas fa-user-code' },
+    { id: 'skills', label: 'Skills', icon: 'fas fa-layer-group' },
+    { id: 'projects', label: 'Projects', icon: 'fas fa-code-branch' },
+    { id: 'github', label: 'GitHub', icon: 'fab fa-github' },
+    { id: 'leetcode', label: 'LeetCode', icon: 'fas fa-brain' },
+    { id: 'learning', label: 'Learning', icon: 'fas fa-graduation-cap' },
+    { id: 'contact', label: 'Contact', icon: 'fas fa-paper-plane' },
+  ]
+
   return (
-    <nav className={`navbar ${isSticky ? 'sticky' : ''}`} id="navbar">
-      {/* Animated Characters - Jumping across nav items */}
-      <div className="nav-character-container">
-        <span className="nav-character-jump" id="char-hash">#</span>
-        <span className="nav-character-jump" id="char-at">@</span>
-      </div>
-      
-      <div className="nav-container">
-        <div className="nav-brand">
-          <a href="#" className="brand-link">
+    <aside className="side-navbar" id="navbar">
+      <div className="side-nav-container">
+        {/* Brand Header */}
+        <div className="side-nav-brand">
+          <a href="#hero" className="brand-link">
             <span className="brand-icon">◻</span>
-            <span className="brand-text">Ashish Yadav</span>
+            <div className="brand-info">
+              <span className="brand-text">Ashish Yadav</span>
+              <span className="brand-subtext">Portfolio</span>
+            </div>
           </a>
         </div>
 
-        <ul className={`nav-menu ${isMenuOpen ? 'active' : ''}`} id="navMenu">
-          <li><a href="#hero" className={`nav-link ${activeSection === 'hero' ? 'active' : ''}`} onClick={handleNavClick}>Home</a></li>
-          <li><a href="#about" className={`nav-link ${activeSection === 'about' ? 'active' : ''}`} onClick={handleNavClick}>About</a></li>
-          <li><a href="#skills" className={`nav-link ${activeSection === 'skills' ? 'active' : ''}`} onClick={handleNavClick}>Skills</a></li>
-          <li><a href="#projects" className={`nav-link ${activeSection === 'projects' ? 'active' : ''}`} onClick={handleNavClick}>Projects</a></li>
-          <li><a href="#github" className={`nav-link ${activeSection === 'github' ? 'active' : ''}`} onClick={handleNavClick}>GitHub</a></li>
-          <li><a href="#leetcode" className={`nav-link ${activeSection === 'leetcode' ? 'active' : ''}`} onClick={handleNavClick}>LeetCode</a></li>
-          <li><a href="#learning" className={`nav-link ${activeSection === 'learning' ? 'active' : ''}`} onClick={handleNavClick}>Learning</a></li>
-          <li><a href="#contact" className={`nav-link ${activeSection === 'contact' ? 'active' : ''}`} onClick={handleNavClick}>Contact</a></li>
-        </ul>
-
-        <div className="nav-controls">
+        {/* Mobile Header Controls */}
+        <div className="mobile-controls">
           <button className="theme-toggle" onClick={toggleTheme} title={isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'}>
             <i className={`fas ${isDarkMode ? 'fa-moon' : 'fa-sun'}`}></i>
           </button>
@@ -71,7 +62,33 @@ export default function Navbar({ isDarkMode, toggleTheme }) {
             <span></span>
           </button>
         </div>
+
+        {/* Vertical Navigation Menu */}
+        <nav className={`side-nav-menu ${isMenuOpen ? 'active' : ''}`} id="navMenu">
+          <ul className="nav-list">
+            {navItems.map((item) => (
+              <li key={item.id}>
+                <a
+                  href={`#${item.id}`}
+                  className={`nav-item-link ${activeSection === item.id ? 'active' : ''}`}
+                  onClick={handleNavClick}
+                >
+                  <i className={`${item.icon} nav-item-icon`}></i>
+                  <span className="nav-item-label">{item.label}</span>
+                </a>
+              </li>
+            ))}
+          </ul>
+
+          {/* Footer Control inside Sidebar */}
+          <div className="sidebar-footer">
+            <button className="sidebar-theme-btn" onClick={toggleTheme}>
+              <i className={`fas ${isDarkMode ? 'fa-moon' : 'fa-sun'}`}></i>
+              <span>{isDarkMode ? 'Dark Obsidian' : 'Light Mode'}</span>
+            </button>
+          </div>
+        </nav>
       </div>
-    </nav>
+    </aside>
   )
 }

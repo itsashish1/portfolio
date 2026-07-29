@@ -40,21 +40,18 @@ export default function Navbar({ isDarkMode, toggleTheme }) {
   ]
 
   return (
-    <header className={`apple-navbar-wrapper ${isScrolled ? 'scrolled' : ''}`}>
-      <nav className="apple-navbar" id="navbar">
-        {/* Apple Brand */}
-        <a href="#hero" className="apple-brand">
-          <span className="brand-symbol"></span>
-          <span className="brand-text">Ashish Yadav</span>
+    <header className={`clean-navbar-wrapper ${isScrolled ? 'scrolled' : ''}`}>
+      <nav className="clean-navbar container">
+        <a href="#hero" className="clean-brand">
+          <span className="brand-name">Ashish Yadav</span>
         </a>
 
-        {/* Minimal Nav Links */}
-        <ul className={`apple-menu ${isMenuOpen ? 'active' : ''}`}>
+        <ul className={`clean-menu ${isMenuOpen ? 'active' : ''}`}>
           {navLinks.map(link => (
             <li key={link.id}>
               <a
                 href={`#${link.id}`}
-                className={`apple-link ${activeSection === link.id ? 'active' : ''}`}
+                className={`clean-link ${activeSection === link.id ? 'active' : ''}`}
                 onClick={handleNavClick}
               >
                 {link.label}
@@ -63,18 +60,17 @@ export default function Navbar({ isDarkMode, toggleTheme }) {
           ))}
         </ul>
 
-        {/* Controls */}
-        <div className="apple-controls">
-          <button className="apple-theme-toggle" onClick={toggleTheme} title="Toggle Theme">
+        <div className="clean-controls">
+          <button className="clean-theme-toggle" onClick={toggleTheme} title="Toggle Theme">
             <i className={`fas ${isDarkMode ? 'fa-moon' : 'fa-sun'}`}></i>
           </button>
           
-          <a href="#contact" className="apple-cta-btn">
+          <a href="#contact" className="clean-cta-btn">
             Connect
           </a>
 
           <button 
-            className={`apple-hamburger ${isMenuOpen ? 'active' : ''}`} 
+            className={`clean-hamburger ${isMenuOpen ? 'active' : ''}`} 
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >

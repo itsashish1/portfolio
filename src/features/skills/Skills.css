@@ -5,52 +5,40 @@
 
 .skills-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
   margin-top: 3.5rem;
 }
 
 .skill-category-box {
-  background: rgba(22, 22, 28, 0.75);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 24px;
-  padding: 2.2rem 1.8rem;
+  background: var(--surface-card);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-lg);
+  padding: 1.8rem;
   height: 100%;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
-  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+  transition: all 0.2s ease;
 }
 
 .skill-category-box:hover {
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.7);
-  transform: translateY(-4px);
+  border-color: var(--surface-border-hover);
 }
 
 .skill-cat-header {
   display: flex;
   align-items: center;
-  gap: 0.9rem;
-  margin-bottom: 1.8rem;
-  padding-bottom: 1rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  gap: 0.8rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.8rem;
+  border-bottom: 1px solid var(--surface-border);
 }
 
 .skill-cat-header i {
-  font-size: 1.3rem;
+  font-size: 1.2rem;
   color: var(--primary-color);
-  background: rgba(41, 151, 255, 0.12);
-  width: 44px;
-  height: 44px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .skill-cat-header h3 {
-  font-size: 1.15rem;
+  font-size: 1.1rem;
   font-weight: 700;
   color: var(--text-primary);
 }
@@ -58,51 +46,42 @@
 .skill-meter-list {
   display: flex;
   flex-direction: column;
-  gap: 1.2rem;
+  gap: 1rem;
 }
 
 .skill-meter-item {
   cursor: pointer;
-  padding: 0.4rem;
-  border-radius: 8px;
-  transition: background 0.2s ease;
-}
-
-.skill-meter-item:hover {
-  background: rgba(255, 255, 255, 0.03);
 }
 
 .meter-label-row {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 0.4rem;
+  margin-bottom: 0.3rem;
 }
 
 .meter-name {
-  font-size: 0.9rem;
-  font-weight: 600;
+  font-size: 0.88rem;
+  font-weight: 500;
   color: var(--text-primary);
 }
 
 .meter-percent {
   font-family: 'JetBrains Mono', monospace;
-  font-size: 0.82rem;
-  font-weight: 700;
+  font-size: 0.8rem;
   color: var(--primary-color);
 }
 
 .meter-track {
-  height: 8px;
-  background: rgba(255, 255, 255, 0.06);
+  height: 6px;
+  background: var(--bg-primary);
   border-radius: 9999px;
   overflow: hidden;
 }
 
 .meter-fill {
   height: 100%;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+  background: var(--primary-color);
   border-radius: 9999px;
-  transition: width 1s cubic-bezier(0.16, 1, 0.3, 1);
-  box-shadow: 0 0 10px rgba(41, 151, 255, 0.4);
+  transition: width 0.8s ease;
 }

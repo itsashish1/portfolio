@@ -1,33 +1,43 @@
+import React, { useState, useEffect } from 'react'
 import './Footer.css'
 
 export default function Footer() {
+  const currentYear = new Date().getFullYear()
+  const [time, setTime] = useState('')
+
+  useEffect(() => {
+    const updateClock = () => {
+      const now = new Date()
+      setTime(now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', second: '2-digit' }))
+    }
+    updateClock()
+    const timer = setInterval(updateClock, 1000)
+    return () => clearInterval(timer)
+  }, [])
+
   return (
-    <footer className="footer">
+    <footer className="apple-footer">
       <div className="container">
-        <div className="footer-content">
-          <div className="footer-section">
-            <h3>Ashish Yadav</h3>
-            <p>Engineering precision meets creative code.</p>
+        <div className="footer-pill-content">
+          <div className="footer-left">
+            <span className="footer-status-badge">
+              <span className="status-green-dot"></span> System Operational
+            </span>
+            <span className="footer-clock">{time || '12:00:00 PM'}</span>
           </div>
-          <div className="footer-section">
-            <h4>Quick Links</h4>
-            <ul>
-              <li><a href="#hero">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#projects">Projects</a></li>
-            </ul>
+
+          <div className="footer-center">
+            <p>© {currentYear} Ashish Yadav. Crafted with Precision & Performance.</p>
           </div>
-          <div className="footer-section">
-            <h4>Connect</h4>
-            <div className="social-links">
-              <a href="https://github.com/itsashish1" target="_blank" rel="noopener noreferrer" title="GitHub"><i className="fab fa-github"></i></a>
-              <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i className="fab fa-linkedin"></i></a>
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" title="Twitter"><i className="fab fa-twitter"></i></a>
-            </div>
+
+          <div className="footer-right">
+            <a href="https://github.com/itsashish1" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+              <i className="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/gtc-ashish" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+              <i className="fab fa-linkedin"></i>
+            </a>
           </div>
-        </div>
-        <div className="footer-bottom">
-          <p>&copy; 2025 Ashish Yadav. All rights reserved. | Designed & Built with <span className="heart">❤</span></p>
         </div>
       </div>
     </footer>

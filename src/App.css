@@ -1,4 +1,4 @@
-/* App-specific styles - Full Width Layout */
+/* App-specific styles - Modern Bento Layout */
 .App {
   display: flex;
   flex-direction: column;
@@ -13,35 +13,40 @@ main {
   width: 100%;
 }
 
-/* Section Header */
+/* Modern Left-Aligned Section Header Architecture */
 .section-header {
-  text-align: center;
+  text-align: left;
   margin-bottom: var(--spacing-3xl);
-  animation: fadeInUp 0.8s ease;
+  position: relative;
+}
+
+.section-index {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+  display: block;
 }
 
 .section-title {
-  font-size: 2.25rem;
+  font-size: clamp(2rem, 3.8vw, 2.75rem);
   font-weight: 800;
-  letter-spacing: -0.02em;
-  margin-bottom: var(--spacing-sm);
-  position: relative;
-  display: inline-block;
+  letter-spacing: -0.025em;
   color: var(--text-primary);
+  line-height: 1.15;
 }
 
 .section-subtitle {
-  color: var(--text-muted);
-  font-size: 1rem;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
   margin-top: 0.5rem;
+  max-width: 650px;
 }
 
 .title-underline {
-  height: 3px;
-  width: 80px;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  margin: var(--spacing-sm) auto 0;
-  border-radius: var(--radius-full);
+  display: none; /* Removed traditional underline */
 }
 
 /* Page Load Animation */
